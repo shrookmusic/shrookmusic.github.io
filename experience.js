@@ -85,6 +85,7 @@
 
   document.querySelectorAll('[data-track]').forEach(track => {
     const audio = track.querySelector('audio');
+    if (!audio) return;
     const rawMeta = track.querySelector('.track-meta')?.textContent.trim() || '';
     const bpmText = rawMeta.match(/\b\d+\s*BPM\b/i)?.[0] || '';
     const source = {

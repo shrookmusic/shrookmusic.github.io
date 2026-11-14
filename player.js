@@ -9,6 +9,7 @@ const formatTime = seconds => {
 for (const track of tracks) {
   const title = track.querySelector('h2, h3').textContent;
   const audio = track.querySelector('audio');
+  // Track cards may use an external streaming embed instead of a local audio file.
   if (!audio) continue;
   const player = track.querySelector('.player');
   const play = track.querySelector('.play');

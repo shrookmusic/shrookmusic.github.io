@@ -85,6 +85,7 @@
 
   document.querySelectorAll('[data-track]').forEach(track => {
     const audio = track.querySelector('audio');
+    // Do not abort the rest of this script when a track is streamed via SoundCloud.
     if (!audio) return;
     const rawMeta = track.querySelector('.track-meta')?.textContent.trim() || '';
     const bpmText = rawMeta.match(/\b\d+\s*BPM\b/i)?.[0] || '';
@@ -182,11 +183,19 @@
   const api = document.createElement('script');
   api.src = 'https://w.soundcloud.com/player/api.js';
   api.onload = () => {
-    document.querySelectorAll('.mix iframe').forEach(frame => {
+    document.querySelectorAll('.mix iframe, .track-stream iframe').forEach(frame => {
       const widget = SC.Widget(frame);
+      const trackCard = frame.closest('[data-track]');
+      const mixCard = frame.closest('.mix');
+      const card = trackCard || mixCard;
+      const meta = trackCard?.querySelector('.track-meta')?.textContent.trim() || '';
+      const bpm = meta.match(/\b\d+\s*BPM\b/i)?.[0] || '';
       const source = {
-        title: frame.closest('.mix').querySelector('h3').textContent,
-        href: '#mixes', kind: 'DJ set', subtitle: 'SoundCloud mix', bpm: 'DJ set',
+        title: card.querySelector('h2,h3').textContent,
+        href: trackCard ? `#${trackCard.getAttribute('aria-labelledby')}` : '#mixes',
+        kind: trackCard ? 'Track' : 'DJ set',
+        subtitle: trackCard ? meta.replace(/\s*\/\s*\d+\s*BPM\b/i, '').trim() : 'SoundCloud mix',
+        bpm: trackCard ? bpm : 'DJ set',
         position: 0, duration: 0, playing: false, ready: false,
         pause: () => widget.pause(),
         play: () => source.ready && widget.play(),
@@ -223,16 +232,15 @@
     let visible = false;
     function play() {
       if (!loaded) {
-        const source = video.querySelector('source');
-        source.src = source.dataset.src;
         video.load();
         loaded = true;
       }
-      video.play().catch(() => {});
+      video.play().catch(() => { toggle.textContent = 'Tap to play footage'; });
     }
     const update = () => { toggle.textContent = video.paused ? 'Play footage' : 'Pause footage'; };
     video.addEventListener('play', update);
     video.addEventListener('pause', update);
+    video.addEventListener('error', () => { toggle.textContent = 'Video unavailable'; });
     toggle.addEventListener('click', () => {
       if (video.paused) { userPaused = false; play(); }
       else { userPaused = true; video.pause(); }

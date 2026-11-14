@@ -105,7 +105,9 @@ nav a:hover, footer a:hover { color: var(--acid); }
 .catalog-track .track-content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(160px, 2fr); column-gap: 22px; }
 .catalog-track h3 { grid-column: 1; margin: 0; font-size: clamp(17px, 2vw, 25px); line-height: 1.15; letter-spacing: -.025em; }
 .catalog-track .track-meta { grid-column: 1; margin: 5px 0 0; }
-.catalog-track .player, .catalog-track audio { grid-area: 1 / 2 / span 2; width: 100%; max-width: none; }
+.catalog-track .player, .catalog-track audio, .catalog-track .track-stream { grid-area: 1 / 2 / span 2; width: 100%; max-width: none; }
+.track-stream { min-width: 0; }
+.track-stream iframe { display: block; width: 100%; border: 0; }
 .catalog-track .player-status { grid-column: 2; }
 .track-content { min-width: 0; }
 .track-content h2 { font-family: var(--primary); font-size: clamp(35px, 5.3vw, 84px); font-weight: 950; letter-spacing: -.09em; line-height: .85; margin: 0; }

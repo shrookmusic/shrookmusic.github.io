@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shrookmusic.github.io/sitemap.xml

@@ -197,23 +197,14 @@ nav { align-items: center; }
 .listen-options a { display: block; padding: 13px 12px; }
 .listen-options a:hover, .listen-options a:focus-visible { color: var(--ink); background: var(--acid); }
 
-.track-artwork { aspect-ratio: 1; background-image: url('assets/track-artworks-refined.png'); background-size: 300% 200%; border: 1px solid #292a22; }
-.artwork-0 { background-position: 0 0; }
-.artwork-1 { background-position: 50% 0; }
-.artwork-2 { background-position: 100% 0; }
-.artwork-3 { background-position: 0 100%; }
-.artwork-4 { background-position: 50% 100%; }
-.artwork-5 { background-position: 100% 100%; }
-.featured-track { display: grid; grid-template-columns: minmax(100px, 24%) minmax(0, 1fr); gap: clamp(16px, 3vw, 35px); align-items: center; }
-.catalog-track { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 20px; align-items: center; }
+.featured-track { display: block; }
+.catalog-track { display: block; }
 .hero-title img { animation: chrome-arrive 1.8s ease-out both; }
 @keyframes chrome-arrive {
   from { filter: contrast(1.13) brightness(.75); transform: translateY(3px); }
   to { filter: contrast(1.13) brightness(1.08); transform: translateY(0); }
 }
 @media (max-width: 730px) {
-  .catalog-track { grid-template-columns: 62px minmax(0, 1fr); gap: 12px; align-items: start; }
-  .featured-track { grid-template-columns: 75px minmax(0, 1fr); align-items: start; gap: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-title img, .hero-title:hover img, .header-logo:hover img { animation: none; }

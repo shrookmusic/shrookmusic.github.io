@@ -1,4 +1,22 @@
 (() => {
+  const pressCopy = document.querySelector('[data-copy-press-link]');
+  if (pressCopy) {
+    const input = document.querySelector('#press-share-link');
+    const status = document.querySelector('.press-copy-status');
+    pressCopy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(input.value);
+      } catch (_) {
+        input.focus();
+        input.select();
+        document.execCommand('copy');
+      }
+      status.textContent = 'Press kit link copied.';
+      pressCopy.textContent = 'Copied';
+      setTimeout(() => { pressCopy.textContent = 'Copy link'; }, 1800);
+    });
+  }
+
   const dialog = document.querySelector('#booking-dialog');
   const opener = document.querySelector('[data-open-booking]');
   const close = dialog.querySelector('.dialog-close');

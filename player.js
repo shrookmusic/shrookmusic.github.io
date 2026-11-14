@@ -9,6 +9,7 @@ const formatTime = seconds => {
 for (const track of tracks) {
   const title = track.querySelector('h2, h3').textContent;
   const audio = track.querySelector('audio');
+  if (!audio) continue;
   const player = track.querySelector('.player');
   const play = track.querySelector('.play');
   const seek = track.querySelector('.seek input');

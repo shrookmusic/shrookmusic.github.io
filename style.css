@@ -362,3 +362,32 @@ body.has-player { padding-bottom:110px; }
 @media(prefers-reduced-motion:reduce){.hero-title img,.header-logo img{animation:none;}}
 
 .streaming-note { margin: 0.8rem 0 0; opacity: 0.68; }
+
+/* Full set and compressed artist photo gallery. */
+.featured-set { display:grid; grid-template-columns:minmax(210px,.55fr) minmax(0,1.45fr); gap:12px 32px; align-items:end; margin-top:clamp(38px,6vw,76px); padding-top:24px; border-top:1px solid var(--line); }
+.featured-set-heading { grid-column:1; grid-row:1; align-self:end; padding-bottom:8px; }
+.featured-set-heading .label { color:var(--acid); }
+.featured-set-heading h3 { margin:12px 0; font:900 clamp(30px,4vw,54px)/.95 var(--primary); letter-spacing:-.05em; }
+.featured-set-heading > p:last-child { color:#c6c6bb; font:14px/1.5 var(--secondary); }
+.youtube-frame { grid-column:2; grid-row:1 / span 2; width:100%; aspect-ratio:16/9; background:#080808; }
+.youtube-frame iframe { display:block; width:100%; height:100%; border:0; }
+.live-set-link { grid-column:1; color:var(--acid); }
+.visual-archive { padding-block:clamp(45px,7vw,88px); border-bottom:1px solid var(--line); }
+.visual-gallery { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+.visual-card { position:relative; grid-column:span 2; margin:0; min-width:0; aspect-ratio:4/5; overflow:hidden; background:#171813; }
+.visual-card:first-child { grid-column:span 4; aspect-ratio:16/9; }
+.visual-card img { display:block; width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.06); transition:transform .55s ease,filter .35s ease; }
+.visual-card:first-child img { object-position:65% 42%; }
+.visual-card:nth-child(4) img { filter:contrast(1.04) saturate(.86); }
+.visual-card:hover img { transform:scale(1.025); filter:grayscale(.25) contrast(1.05); }
+.visual-card:nth-child(4):hover img { filter:contrast(1.04) saturate(.95); }
+.visual-card figcaption { position:absolute; left:12px; bottom:12px; padding:7px 9px; color:var(--paper); background:#141411d9; font-size:9px; }
+@media(max-width:650px) {
+ .featured-set { grid-template-columns:1fr; gap:12px; }
+ .featured-set-heading,.youtube-frame,.live-set-link { grid-column:1; grid-row:auto; }
+ .featured-set-heading h3 { margin:8px 0; }
+ .visual-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+ .visual-card,.visual-card:first-child { grid-column:span 1; aspect-ratio:4/5; }
+ .visual-card:first-child { grid-column:span 2; aspect-ratio:16/10; }
+ .visual-card figcaption { left:8px; bottom:8px; padding:6px 7px; }
+}

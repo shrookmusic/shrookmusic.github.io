@@ -453,3 +453,29 @@ nav .booking-menu .listen-options { left:auto; right:0; }
 @media (prefers-reduced-motion: reduce) {
   .wordmark::after, .visual-card::after { animation: none !important; }
 }
+
+
+/* Periodic Y2K signal pulse: short, staggered glints every three seconds. */
+@keyframes wordmark-cycle {
+  0%, 83% { opacity: 0; transform: translateX(0); clip-path: inset(0); }
+  86% { opacity: .9; transform: translateX(-2px); clip-path: inset(14% 0 68%); }
+  90% { opacity: .72; transform: translateX(2px); clip-path: inset(43% 0 38%); }
+  94% { opacity: .86; transform: translateX(-1px); clip-path: inset(72% 0 12%); }
+  100% { opacity: 0; transform: translateX(0); clip-path: inset(0); }
+}
+@keyframes portrait-cycle {
+  0%, 83% { opacity: .42; transform: translateX(0); clip-path: inset(0); }
+  86% { opacity: .9; transform: translateX(-3px); clip-path: inset(16% 0 67%); }
+  90% { opacity: .7; transform: translateX(2px); clip-path: inset(48% 0 33%); }
+  94% { opacity: .85; transform: translateX(-1px); clip-path: inset(76% 0 10%); }
+  100% { opacity: .42; transform: translateX(0); clip-path: inset(0); }
+}
+.wordmark::after { animation: wordmark-cycle 3s steps(2, end) infinite !important; }
+.visual-card::after, .hero-portrait::after { animation: portrait-cycle 3s steps(2, end) infinite !important; }
+.visual-card:nth-child(2)::after { animation-delay: .12s !important; }
+.visual-card:nth-child(3)::after { animation-delay: .24s !important; }
+.visual-card:nth-child(4)::after { animation-delay: .36s !important; }
+.visual-card:nth-child(5)::after { animation-delay: .48s !important; }
+@media (prefers-reduced-motion: reduce) {
+  .wordmark::after, .visual-card::after, .hero-portrait::after { animation: none !important; }
+}

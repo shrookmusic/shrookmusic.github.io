@@ -47,9 +47,30 @@
 
   function paint(source) {
     if (active !== source) return;
+    const wasPlaying = bar.classList.contains('is-playing');
     bar.classList.toggle('is-playing', source.playing);
     document.body.classList.toggle('audio-active', source.playing);
-    title.querySelector('strong').textContent = source.title;
+    if (source.playing && !wasPlaying) {
+      const bpmValue = Number.parseFloat(source.bpm);
+      const beatDuration = Number.isFinite(bpmValue) && bpmValue > 0 ? 60 / bpmValue : 0.5;
+      const position = Math.max(0, Number(source.position) || 0);
+      const beatPhase = position % beatDuration;
+      document.body.style.setProperty('--beat-duration', `${beatDuration}s`);
+      document.body.style.setProperty('--beat-phase', `-${beatPhase}s`);
+    }
+    const trackName = title.querySelector('.sticky-track-name');
+    const titleStrong = title.querySelector('strong');
+    if (trackName) {
+      trackName.textContent = source.title;
+      trackName.setAttribute('data-text', source.title);
+      requestAnimationFrame(() => {
+        const overflows = trackName.scrollWidth > trackName.parentElement.clientWidth + 2;
+        trackName.classList.toggle('is-marquee', overflows);
+        if (overflows) trackName.style.setProperty('--marquee-duration', `${Math.max(6, source.title.length * 0.36)}s`);
+      });
+    } else {
+      titleStrong.textContent = source.title;
+    }
     title.href = source.href;
     subtitle.textContent = source.subtitle;
     bpm.textContent = source.bpm || source.kind.toUpperCase();

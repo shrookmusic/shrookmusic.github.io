@@ -416,3 +416,40 @@ body.has-player { padding-bottom:110px; }
 
 /* Keep the last sticky-header menu aligned within the viewport. */
 nav .booking-menu .listen-options { left:auto; right:0; }
+
+
+/* Y2K signal treatment: quiet scanlines, with a brief glitch on interaction. */
+.wordmark { isolation: isolate; }
+.wordmark img { z-index: 0; }
+.wordmark::before,
+.wordmark::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.wordmark::before { z-index: 1; background: repeating-linear-gradient(0deg, rgba(20, 20, 17, .15) 0 1px, transparent 1px 4px); opacity: .3; }
+.wordmark::after { z-index: 2; background: url("assets/shrook-wordmark.webp") center / contain no-repeat; filter: drop-shadow(-1px 0 rgba(255, 35, 130, .75)) drop-shadow(1px 0 rgba(60, 240, 255, .8)); opacity: 0; }
+.hero-portrait img { z-index: 0; }
+.hero-portrait::before { content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(255, 30, 120, .07), transparent 38%, transparent 67%, rgba(20, 220, 255, .09)); mix-blend-mode: screen; }
+.hero-portrait::after { z-index: 2; }
+.visual-card::before,
+.visual-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+.visual-card::before { z-index: 1; background: repeating-linear-gradient(0deg, rgba(10, 12, 10, .22) 0 1px, transparent 1px 4px); opacity: .45; }
+.visual-card::after { z-index: 2; background: linear-gradient(90deg, rgba(255, 35, 125, .12), transparent 28%, transparent 72%, rgba(35, 225, 255, .12)); mix-blend-mode: screen; opacity: .42; }
+.visual-card figcaption { z-index: 3; }
+@keyframes wordmark-signal {
+  0%, 100% { opacity: 0; transform: translateX(0); clip-path: inset(0); }
+  18% { opacity: .9; transform: translateX(-2px); clip-path: inset(14% 0 68%); }
+  38% { opacity: .72; transform: translateX(2px); clip-path: inset(43% 0 38%); }
+  62% { opacity: .86; transform: translateX(-1px); clip-path: inset(72% 0 12%); }
+}
+@keyframes portrait-signal {
+  0%, 100% { opacity: .42; transform: translateX(0); clip-path: inset(0); }
+  25% { opacity: .9; transform: translateX(-3px); clip-path: inset(16% 0 67%); }
+  50% { opacity: .7; transform: translateX(2px); clip-path: inset(48% 0 33%); }
+  75% { opacity: .85; transform: translateX(-1px); clip-path: inset(76% 0 10%); }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .wordmark:hover::after, .wordmark:focus-visible::after { animation: wordmark-signal .42s steps(2, end) 1; }
+  .visual-card:hover::after, .visual-card:focus-within::after { animation: portrait-signal .42s steps(2, end) 1; }
+  .hero-portrait:hover::after { animation: portrait-signal .42s steps(2, end) 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wordmark::after, .visual-card::after { animation: none !important; }
+}

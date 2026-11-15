@@ -47,6 +47,9 @@
 
   function paint(source) {
     if (active !== source) return;
+    bar.classList.toggle('is-playing', source.playing);
+    const signalStatus = document.querySelector('.signal-status');
+    if (signalStatus) signalStatus.textContent = source.playing ? `ON AIR / ${source.bpm || source.kind.toUpperCase()}` : 'SIGNAL STANDBY';
     title.querySelector('strong').textContent = source.title;
     title.href = source.href;
     subtitle.textContent = source.subtitle;
@@ -61,6 +64,7 @@
   }
 
   function activate(source) {
+    bar.classList.remove('is-playing');
     if (active !== source) {
       sources.forEach(other => {
         if (other !== source) {
@@ -176,6 +180,9 @@
     active?.pause();
     if (dockedAudio) restoreAudio(dockedAudio);
     active = null;
+    bar.classList.remove('is-playing');
+    const signalStatus = document.querySelector('.signal-status');
+    if (signalStatus) signalStatus.textContent = 'SIGNAL STANDBY';
     bar.hidden = true;
     document.body.classList.remove('has-player');
   });

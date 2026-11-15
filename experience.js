@@ -74,7 +74,7 @@
     title.href = source.href;
     subtitle.textContent = source.subtitle;
     bpm.textContent = source.bpm || source.kind.toUpperCase();
-    button.textContent = source.playing ? 'Pause' : 'Play';
+    button.dataset.playing = String(source.playing);
     button.setAttribute('aria-label', `${source.playing ? 'Pause' : 'Play'} ${source.title}`);
     range.max = source.duration || 1;
     if (!scrubbing) range.value = source.position || 0;

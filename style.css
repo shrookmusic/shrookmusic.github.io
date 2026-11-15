@@ -653,3 +653,8 @@ body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.a
 
 /* Keep portrait 04 grayscale, including hover. */
 .visual-card:nth-child(4) img, .visual-card:nth-child(4):hover img { filter: grayscale(1) contrast(1.04); }
+
+
+/* Stack both hero taglines within the same full-width block as the CTA row. */
+.hero-genre { display:flex; flex-direction:column; align-items:flex-start; gap:.12em; width:100%; max-width:607px; }
+.hero-genre-phrase { display:block; width:100%; }

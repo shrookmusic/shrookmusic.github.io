@@ -643,3 +643,13 @@ body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.a
 /* Let the Listen Now menu wrapper share the expanded hero row evenly. */
 .hero-actions > .hero-listen-menu { flex: 1 1 0; min-width: 0; }
 .hero-listen-menu > .hero-link { width: 100%; box-sizing: border-box; }
+
+
+/* Center hero button labels while keeping icons at the right edge. */
+.hero-actions .hero-link { position: relative; justify-content: center; }
+.hero-actions .hero-link-secondary .arrow { position: absolute; right: 15px; }
+.hero-listen-menu > summary::after { position: absolute; top: 50%; right: 15px; transform: translateY(-50%) rotate(45deg); }
+.hero-listen-menu[open] > summary::after { transform: translateY(-50%) rotate(225deg); }
+
+/* Keep portrait 04 grayscale, including hover. */
+.visual-card:nth-child(4) img, .visual-card:nth-child(4):hover img { filter: grayscale(1) contrast(1.04); }

@@ -601,3 +601,30 @@ body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.a
   body.audio-active .hero-title img, body.audio-active .header-logo img, body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.audio-active .video-frame video { animation: none !important; scale: 1 !important; }
   .sticky-track-name.is-marquee { animation: none !important; }
 }
+
+
+/* A slow, bubbly left-to-right swivel; header and hero stay staggered. */
+.hero-title.wordmark { animation: logo-yaw 3s cubic-bezier(.58, 0, .42, 1) -.34s infinite; }
+.header-logo.wordmark { animation: logo-yaw-small 3s cubic-bezier(.58, 0, .42, 1) -.59s infinite; }
+@keyframes logo-yaw {
+  0%, 100% { transform: perspective(900px) rotateY(0deg) scale(1); }
+  25% { transform: perspective(900px) rotateY(-18deg) scale(1.035, .975); }
+  50% { transform: perspective(900px) rotateY(0deg) scale(1.015, 1.015); }
+  75% { transform: perspective(900px) rotateY(18deg) scale(1.035, .975); }
+}
+@keyframes logo-yaw-small {
+  0%, 100% { transform: perspective(700px) rotateY(0deg) scale(1); }
+  25% { transform: perspective(700px) rotateY(-6deg) scale(1.015, .99); }
+  50% { transform: perspective(700px) rotateY(0deg) scale(1.008, 1.008); }
+  75% { transform: perspective(700px) rotateY(6deg) scale(1.015, .99); }
+}
+.sticky-title { position: relative; padding-right: 78px; }
+.sticky-titleline { align-items: center; min-height: 18px; }
+.sticky-titleline .sticky-bpm { position: absolute; top: 50%; right: 0; transform: translateY(-50%); align-self: auto; }
+.sticky-time { font-size: 15px; }
+.sticky-controls button, .sticky-close { width: 34px; height: 34px; min-width: 34px; }
+.sticky-play svg { display: block; width: 14px; height: 14px; fill: currentColor; }
+.sticky-play .pause-icon, .sticky-play[data-playing="true"] .play-icon { display: none; }
+.sticky-play[data-playing="true"] .pause-icon { display: block; }
+.sticky-close { font-size: 20px; }
+@media (prefers-reduced-motion: reduce) { .hero-title.wordmark, .header-logo.wordmark { animation: none !important; } }

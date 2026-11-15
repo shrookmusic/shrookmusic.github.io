@@ -628,3 +628,14 @@ body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.a
 .sticky-play[data-playing="true"] .pause-icon { display: block; }
 .sticky-close { font-size: 20px; }
 @media (prefers-reduced-motion: reduce) { .hero-title.wordmark, .header-logo.wordmark { animation: none !important; } }
+
+
+/* Hero calls to action align with the wordmark while preserving the page gutter. */
+.hero-actions { width: 100%; max-width: 607px; }
+.hero-actions .hero-link { flex: 1 1 0; min-width: 0; min-height: 50px; justify-content: space-between; font-size: 13px; }
+.hero-genre { width: 100%; max-width: 607px; }
+@media (max-width: 730px) {
+  .hero-actions { width: 100%; }
+  .hero-actions .hero-link { min-height: 44px; padding-inline: 9px; gap: 7px; font-size: 10px; }
+  .hero-genre { width: 100%; }
+}

@@ -561,3 +561,43 @@ body.audio-active .hero-portrait img { animation: audio-breathe 2.6s ease-in-out
   .hero-title.wordmark, .header-logo.wordmark { animation: none !important; }
   body.audio-active .hero-title img, body.audio-active .header-logo img, body.audio-active .hero-portrait img { animation: none !important; scale: 1 !important; }
 }
+
+
+/* Three-second, staggered swivel and beat-synced motion. */
+.hero-title.wordmark { animation: logo-yaw 3s cubic-bezier(.65, 0, .35, 1) -.34s infinite; }
+.header-logo.wordmark { animation: logo-yaw-small 3s cubic-bezier(.65, 0, .35, 1) -.59s infinite; }
+@keyframes logo-yaw {
+  0%, 32%, 100% { transform: perspective(900px) rotateY(0deg) scale(1); }
+  40% { transform: perspective(900px) rotateY(-5deg) scale(1.012); }
+  49% { transform: perspective(900px) rotateY(-15deg) scale(1.035); }
+  61% { transform: perspective(900px) rotateY(12deg) scale(1.03); }
+  73% { transform: perspective(900px) rotateY(4deg) scale(1.01); }
+  85% { transform: perspective(900px) rotateY(0deg) scale(1); }
+}
+@keyframes logo-yaw-small {
+  0%, 32%, 100% { transform: perspective(700px) rotateY(0deg) scale(1); }
+  40% { transform: perspective(700px) rotateY(-2deg) scale(1.004); }
+  49% { transform: perspective(700px) rotateY(-5deg) scale(1.01); }
+  61% { transform: perspective(700px) rotateY(4deg) scale(1.01); }
+  73% { transform: perspective(700px) rotateY(1deg) scale(1.003); }
+  85% { transform: perspective(700px) rotateY(0deg) scale(1); }
+}
+@keyframes beat-pulse { 0%, 100% { scale: 1; } 12% { scale: 1.035; } 48% { scale: 1; } }
+body.audio-active .hero-title img, body.audio-active .header-logo img { animation: chrome-glint 6s ease-in-out infinite, beat-pulse var(--beat-duration, .5s) ease-out infinite; animation-delay: 0s, var(--beat-phase, 0s); }
+body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.audio-active .video-frame video { animation: beat-pulse var(--beat-duration, .5s) ease-out infinite; animation-delay: var(--beat-phase, 0s); }
+.sticky-titleline { align-items: center; }
+.sticky-titleline strong { display: block; flex: 1 1 auto; min-width: 0; overflow: hidden; margin: 0; font-family: var(--secondary); font-size: 15px; font-weight: 700; line-height: 1; white-space: nowrap; }
+.sticky-titleline .sticky-bpm { display: inline-flex; flex: 0 0 auto; align-self: center; align-items: center; margin: 0; line-height: 1; }
+.sticky-track-name { display: inline-block; white-space: nowrap; }
+.sticky-track-name.is-marquee { animation: sticky-title-marquee var(--marquee-duration, 8s) linear infinite; }
+.sticky-track-name.is-marquee::after { content: attr(data-text); padding-left: 2.25rem; }
+@keyframes sticky-title-marquee { 0%, 10% { transform: translateX(0); } 90%, 100% { transform: translateX(-50%); } }
+.sticky-controls button, .sticky-close { display: grid; place-items: center; width: 40px; height: 40px; min-width: 40px; padding: 0; border: 1px solid var(--acid); border-radius: 50%; background: var(--acid); color: var(--ink); font-size: 13px; line-height: 1; }
+.sticky-close { font-size: 22px; }
+.sticky-controls button:hover, .sticky-close:hover { background: var(--ink); color: var(--acid); }
+.sticky-controls button:focus-visible, .sticky-close:focus-visible { outline-color: var(--acid); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-title.wordmark, .header-logo.wordmark { animation: none !important; }
+  body.audio-active .hero-title img, body.audio-active .header-logo img, body.audio-active .hero-portrait img, body.audio-active .visual-card img, body.audio-active .video-frame video { animation: none !important; scale: 1 !important; }
+  .sticky-track-name.is-marquee { animation: none !important; }
+}

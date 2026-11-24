@@ -1,4 +1,4 @@
-const CACHE = "self-care-cards-v10";
+const CACHE = "self-care-cards-v11";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./cards.json", "./source-decks.json", "./icon.svg"];
 const APP_ROOT = new URL("./", self.location.href);
 const DATA_FILES = new Set(["cards.json", "source-decks.json"]);
@@ -28,7 +28,7 @@ self.addEventListener("fetch", event => {
   if (event.request.mode === "navigate") {
     event.respondWith((async () => {
       try {
-        const response = await fetch(event.request);
+        const response = await fetch(new Request(event.request, { cache: "no-cache" }));
         if (response.ok) {
           const cache = await caches.open(CACHE);
           await cache.put(new URL("./index.html", self.location.href).href, response.clone());

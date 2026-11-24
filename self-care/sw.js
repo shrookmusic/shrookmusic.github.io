@@ -1,11 +1,14 @@
-const CACHE = "self-care-cards-v9";
+const CACHE = "self-care-cards-v10";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./cards.json", "./source-decks.json", "./icon.svg"];
 const APP_ROOT = new URL("./", self.location.href);
 const DATA_FILES = new Set(["cards.json", "source-decks.json"]);
 
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)));
-  self.skipWaiting();
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await cache.addAll(FILES);
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener("activate", event => {
@@ -13,11 +16,7 @@ self.addEventListener("activate", event => {
     const keys = await caches.keys();
     await Promise.all(keys.filter(key => key.startsWith("self-care-cards-") && key !== CACHE).map(key => caches.delete(key)));
     await self.clients.claim();
-    const windows = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-    await Promise.all(windows.filter(client => {
-      const url = new URL(client.url);
-      return url.origin === self.location.origin && url.pathname.startsWith(APP_ROOT.pathname);
-    }).map(client => client.navigate(client.url)));
+    // Claim existing app windows without forcing a navigation/reload.
   })());
 });
 

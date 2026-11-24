@@ -118,7 +118,7 @@
   
   /* Laptop and desktop layout: roomy two-column card workspace */
   @media(min-width:820px){
-    .shell{width:min(100% - 56px,1240px);max-width:1240px;padding:42px 0 56px}
+    .shell{width:calc(100% - 56px);max-width:1240px;padding:42px 0 56px}
     header{align-items:center;gap:28px;margin-bottom:28px}
     header>div{max-width:78ch}
     .brand{font-size:clamp(2rem,3.3vw,3.1rem)}
@@ -467,6 +467,8 @@
     #drawView .draw-layout{grid-template-columns:repeat(15,minmax(0,1fr));grid-template-areas:"needs needs needs needs needs area area area area area access access access access access" "draw draw draw similar similar similar skip skip skip previous previous previous focus focus focus" "helper helper helper helper helper helper helper helper helper helper helper helper helper helper helper" "card card card card card card card card card card card card card card card";gap:14px;align-items:stretch}
     #drawView .draw-controls,#drawView .draw-stage,#drawView .draw-row{display:contents!important}
     #drawView .selection-panels{display:contents!important}
+    #drawView .selection-panels>.area-picker{grid-area:area!important}
+    #drawView .selection-panels>.accessibility-panel{grid-area:access!important}
     #drawView .need-picker{grid-area:needs;min-width:0;margin:0;align-self:stretch}
     #drawView .area-picker{grid-area:area;min-width:0;width:100%;height:100%;margin:0;padding:16px 15px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#1d1e1b,#171815);box-shadow:inset 0 1px #ffffff0a,0 10px 24px #0003}
     #drawView .area-picker .filters{display:flex;flex-wrap:wrap;overflow:visible;gap:7px;margin:0;padding:9px 0 0}

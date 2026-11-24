@@ -576,7 +576,7 @@
           durationMs = event.duration;
           duration.textContent = formatTime(durationMs);
         }
-        setStatus("Playing POW POW");
+        if (isPlaying) setStatus("Playing POW POW");
       });
       playButton.addEventListener("click", function () {
         if (!widgetReady) return;

@@ -1,0 +1,13 @@
+{
+  "name": "Self-Care Cards",
+  "short_name": "Care Cards",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f6f0",
+  "theme_color": "#526b61",
+  "description": "100 neurodivergent-first self-care prompts plus optional, credited source decks.",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

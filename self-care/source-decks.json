@@ -1,0 +1,104 @@
+[
+  {
+    "id":"dopamine-farming","title":"Dopamine Farming™ Deck","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/dopamine-farming-deck-free.pdf","area":"Gentle starts","description":"Tiny, playful actions for getting a little momentum. Choose only what feels comfortable.","cards":[
+      {"title":"Make a tiny rhythm","prompt":"Whistle, snap, or clap a rhythm for 30 seconds."},
+      {"title":"One-song task","prompt":"Try a “one-song task”: do one job for the length of one song."},
+      {"title":"Tap, then begin","prompt":"Lightly tap your teeth together five times, then open your notes and begin."},
+      {"title":"Balance and begin","prompt":"Balance a pencil on your fingertip for as long as you can, then start the task when it drops."},
+      {"title":"A small checkpoint","prompt":"Keep a snack nearby and choose your own small checkpoint for enjoying one piece."},
+      {"title":"A short sound detour","prompt":"Listen to a 15-second chunk of an unexpected music genre."},
+      {"title":"Notice two textures","prompt":"Run your fingertips across two different textures, if that feels pleasant."},
+      {"title":"Optional movement","prompt":"Try a few gentle hops or another movement that suits your body. You can also stay seated."},
+      {"title":"Adjust the light","prompt":"If helpful, adjust the light to a level or tone that feels more comfortable."}
+    ]
+  },
+  {
+    "id":"neuroscouts-quests","title":"NeuroScouts Quests Deck","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/neuroscouts-quests-deck.pdf","area":"Curiosity & play","description":"Creative imagination prompts. These are invitations, not assignments.","cards":[
+      {"title":"Poem and drawing","prompt":"Write a short poem in the margins of a drawing. How do the words and images connect?"},
+      {"title":"Imagine a reviewer","prompt":"Read a stranger’s review online. Imagine their life story."},
+      {"title":"A song someone likes","prompt":"Ask a friend for the last song they listened to. Write about how it makes you feel."},
+      {"title":"Unusual job title","prompt":"Look up an unusual job title. Write about a person who has that job."},
+      {"title":"Niche interest","prompt":"Explore a subreddit about a niche topic. Imagine someone deeply passionate about it."},
+      {"title":"A found photograph","prompt":"Find a family photo of someone you don’t know. Imagine the relationships in it."},
+      {"title":"Folklore remix","prompt":"Research the folklore of a culture you’re unfamiliar with. Write your own version of a tale."},
+      {"title":"A book’s year","prompt":"Look up the year your favorite book was published. Write about how the world looked then."},
+      {"title":"A curious law","prompt":"Search for an unusual law in another country. Imagine a day it is enforced."},
+      {"title":"Voice-to-text stream","prompt":"Use voice-to-text to dictate a stream of consciousness, then reflect on the result. Skip this if voice input feels uncomfortable."},
+      {"title":"A banned book","prompt":"Look up a banned book. Write why you think it was controversial."},
+      {"title":"An ancient invention","prompt":"Explore an ancient invention. Write about how it shaped society."},
+      {"title":"Where food comes from","prompt":"Find the origin of a favorite food. Write about the journey it took to your plate."}
+    ]
+  },
+  {
+    "id":"real-life-neuroscouts","title":"Real Life NeuroScouts","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/real-life-neuroscouts.pdf","area":"Curiosity & movement","description":"Out-in-the-world prompts. Check accessibility and safety first; adapt or skip freely.","cards":[
+      {"title":"Tell the quest story","prompt":"Write a short story about your quest. Use your experiences as inspiration."},
+      {"title":"Staircase spotting","prompt":"Notice a staircase you can access. You can simply look, count the steps, or climb only if it feels safe and comfortable."},
+      {"title":"Follow a path","prompt":"Choose a safe, accessible path to explore—or trace a route on a map from where you are."}
+    ]
+  },
+  {
+    "id":"autistic-liberation","title":"Autistic Liberation Skill Cards","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/autistic-liberation-skill-cards.pdf","area":"Self-acceptance","description":"Affirming prompts about comfort, autonomy, and self-expression. Some are bold; opt in only when they fit you and your situation.","cards":[
+      {"title":"Wear what brings joy","prompt":"Wear something today that makes you happy instead of something that makes you blend in—even if it’s a playful backpack, a favorite shirt, or expressive socks."},
+      {"title":"Move your own way","prompt":"If it feels safe, stim in a way that helps you. Your body does not exist only for other people’s comfort."},
+      {"title":"Stay on your own side","prompt":"If someone looks at you funny, pause and remind yourself that being different does not make you a problem."},
+      {"title":"Share your interest","prompt":"Talk about a favorite thing for as long as feels good today. You don’t need to apologize for enjoying it."},
+      {"title":"Let laughter sound like you","prompt":"Laugh in the way that comes naturally, if you feel comfortable doing so."},
+      {"title":"Bring a comfort object","prompt":"Carry a comfort object if it helps. It can be a practical support, not something to feel ashamed of."},
+      {"title":"Choose a boundary","prompt":"Think of a boundary that protects your energy. You can keep it private or share it in your own words."},
+      {"title":"Play for its own sake","prompt":"Choose a game that feels joyful and unserious—any age, any format."},
+      {"title":"Enjoy an interest openly","prompt":"Choose an interest you love and give yourself permission to enjoy it."},
+      {"title":"Release eye-contact pressure","prompt":"For one interaction, let yourself use the amount of eye contact that feels comfortable."},
+      {"title":"Find autistic voices","prompt":"Find an autistic creator whose work feels good to you. Following them is optional."},
+      {"title":"Use your own words","prompt":"If it feels right, describe yourself using the words that fit you. No label is required here."},
+      {"title":"Let your voice be natural","prompt":"Let your voice be what it is today—quiet, excited, monotone, rambling, or something else."},
+      {"title":"Use headphones","prompt":"Wear headphones in public if they help. You don’t owe strangers an explanation."}
+    ]
+  },
+  {
+    "id":"playful-thinking","title":"Playful Thinking Problem Solver","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/playful-thinking-problem-solver-deck.pdf","area":"Reframing","description":"Short thinking tools for when you want to examine a problem. Skip them when thinking itself feels like too much.","cards":[
+      {"title":"Assumption check","prompt":"What are you assuming?"},
+      {"title":"Black hat","prompt":"What could go wrong? Consider this only if it helps you prepare, not spiral."},
+      {"title":"Blue hat","prompt":"Summarize what you know and choose one next step—or decide to pause."},
+      {"title":"Coin flip","prompt":"Heads: try it. Tails: change it. Treat the flip as a way to notice what you hope for, not as a rule."},
+      {"title":"Combine","prompt":"Merge two parts of the problem or two possible solutions. What new option appears?"}
+    ]
+  },
+  {
+    "id":"care-quest","title":"Care Quest Deck","author":"Alora Young · NeuroScouts (the PDF cover also credits SEHTLO WEBS MD)","source":"https://alorayoung.org/downloads/care-quest-deck.pdf","area":"Care navigation","description":"A step-by-step guide for finding psychiatric care. This general resource may need adapting to your location and circumstances.","cards":[
+      {"title":"Path 1 · Define the mission","prompt":"Choose a focus for care—or write “I don’t know, but I’m struggling.” Try to finish: “I’m seeking help because…”"},
+      {"title":"Path 2 · Choose the team","prompt":"Consider whether you’re looking for a therapist, psychiatrist, or both. If medication is a question for you, identify a qualified prescriber to discuss it with."},
+      {"title":"Path 3 · Build a short list","prompt":"Write down a few possible providers from sources that apply where you live, such as your insurer, clinics, hospitals, or trusted recommendations."},
+      {"title":"Path 4 · Check logistics","prompt":"Compare the practical details that matter to you: cost, location or telehealth, waiting time, coverage, and cancellation terms."},
+      {"title":"Path 5 · Make contact","prompt":"If you feel ready, contact one option or ask someone to help. A backup option is okay too."}
+    ]
+  },
+  {
+    "id":"frame-shifter","title":"Frame Shifter Cards","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/frame-shifter-cards.pdf","area":"Reframing","description":"Choose one lens at a time to look at a problem differently. These are optional reflection prompts, not clinical techniques.","cards":[
+      {"title":"Engineer mode","prompt":"Write the goal in one sentence. List a few real constraints and possible mechanisms, such as reduce, automate, buffer, or repeat. Choose one small test and decide how you’ll know it helped."},
+      {"title":"Poet mode","prompt":"Write a few words connected to the problem. Combine two unrelated words into a sentence. What feeling or meaning does it bring up? Rewrite that insight plainly."},
+      {"title":"Scientist mode","prompt":"Write a small hypothesis: “If X, then Y.” Choose a low-stakes test, try it only if you want to, and note what happened."},
+      {"title":"Historian mode","prompt":"Has something like this happened before? What was the context then, and what has changed since?"},
+      {"title":"Philosopher mode","prompt":"Write the belief you’re holding. What supports it? What assumption sits underneath? Can you restate it more gently or precisely?"}
+    ]
+  },
+  {
+    "id":"design-thinking","title":"Design Thinking Solutions","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/design-thinking-solutions-cards.pdf","area":"Reframing","description":"A simple design process for a problem you have the energy to work on.","cards":[
+      {"title":"Who is affected?","prompt":"Who is affected by this situation—including you?"},
+      {"title":"What is difficult?","prompt":"What part of this situation is difficult or frustrating for the people involved?"},
+      {"title":"Define","prompt":"In one sentence, what is the problem you want to address?"},
+      {"title":"Name the real problem","prompt":"Try completing: “The real problem is ____.” You can revise it later."},
+      {"title":"Ideate","prompt":"Think of several possible ideas. Unusual ideas are allowed; you don’t need ten."},
+      {"title":"List options","prompt":"List a few possible ideas, even if they’re rough."},
+      {"title":"Prototype","prompt":"What is the smallest version of one idea you could try?"},
+      {"title":"What could you test today?","prompt":"What could you test today?"},
+      {"title":"Test","prompt":"Test."}
+    ]
+  },
+  {
+    "id":"divergent-thinking","title":"Divergent Thinking Deck","author":"Alora Young · NeuroScouts","source":"https://alorayoung.org/downloads/divergent-thinking-deck.pdf","area":"Creative spark","description":"Brief idea-generation prompts. No need to find a useful answer.","cards":[
+      {"title":"Reimagine a spoon","prompt":"List five new uses for a spoon."},
+      {"title":"Redesign a toothbrush","prompt":"How could you redesign a toothbrush to make it more fun?"},
+      {"title":"Give laces another job","prompt":"Invent three alternative purposes for shoelaces."}
+    ]
+  }
+]

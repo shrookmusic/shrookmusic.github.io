@@ -115,7 +115,67 @@
   .reading-size-actions .action{min-width:48px;min-height:44px;padding:8px 12px}
   .reading-size-actions output{min-width:48px;text-align:center;color:var(--ink);font-variant-numeric:tabular-nums}
   @media(max-width:380px){.reading-size-actions{gap:6px}.reading-size-actions .action{min-width:43px;padding-inline:9px}}
-  </style>
+  
+  /* Laptop and desktop layout: roomy two-column card workspace */
+  @media(min-width:820px){
+    .shell{width:min(100% - 56px,1240px);max-width:1240px;padding:42px 0 56px}
+    header{align-items:center;gap:28px;margin-bottom:28px}
+    header>div{max-width:78ch}
+    .brand{font-size:clamp(2rem,3.3vw,3.1rem)}
+    .tagline{font-size:1rem;max-width:65ch}
+    .tabs{display:flex;position:static;width:max-content;max-width:100%;gap:6px;margin:0 0 26px;padding:5px;border:1px solid #555a55;border-radius:14px;background:linear-gradient(145deg,#20211e,#171815);box-shadow:inset 0 1px #ffffff12,0 3px 10px #0004}
+    .tab{min-height:44px;padding:11px 17px;border:0;border-radius:10px;font-size:.76rem;letter-spacing:.07em}
+    .tab[aria-selected=true]{color:#151814;border:0;background:linear-gradient(180deg,#f6f7f3,#c4c9c4 52%,#e8eae6);box-shadow:inset 0 1px #fff,0 2px 0 #6b706c;text-shadow:none}
+    #drawView .draw-layout{display:grid;grid-template-columns:minmax(245px,.78fr) minmax(0,1.55fr);gap:clamp(22px,3vw,40px);align-items:start}
+    .draw-controls{position:sticky;top:22px;align-self:start;min-width:0}
+    .need-picker{margin:0 0 12px;padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#1d1e1b,#171815);box-shadow:inset 0 1px #ffffff0a,0 10px 24px #0003}
+    .need-picker h2{font-size:1.15rem}
+    .need-options{grid-template-columns:1fr;gap:8px}
+    .need-option{min-height:62px;padding:11px 13px}
+    .area-picker{margin:12px 0}
+    .area-picker .filters{flex-wrap:wrap;overflow:visible;padding:8px 0 2px}
+    .area-picker .chip{padding:8px 11px}
+    .draw-row{display:grid;grid-template-columns:1fr;gap:9px;margin:14px 0 0}
+    .draw-row .primary,.draw-row .secondary{width:100%;min-height:52px}
+    .helper{text-align:left;margin:15px 3px 0}
+    .draw-stage{min-width:0}
+    .draw-stage .card{padding:clamp(28px,3.8vw,50px);border-radius:20px}
+    .draw-stage .card-title{font-size:calc(clamp(1.55rem,2.15vw,2.25rem)*var(--reading-scale))}
+    .draw-stage .prompt{font-size:calc(clamp(1.18rem,1.45vw,1.52rem)*var(--reading-scale));line-height:1.62;max-width:72ch}
+    .draw-stage .reflection p,.draw-stage .small p{font-size:calc(clamp(.98rem,1.08vw,1.12rem)*var(--reading-scale))}
+    .history-row{margin-top:12px}
+    .card-tools,.actions{gap:12px;margin-top:12px}
+    .draw-stage .action{min-height:50px;font-size:.95rem}
+    #exploreView .info{padding:clamp(24px,3.5vw,42px)}
+    #exploreView .deck-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    #exploreView .deck-option{height:100%;min-height:96px;padding:17px}
+    #exploreView .deck-detail{max-width:1040px;margin:0 auto}
+    #exploreView .source-card{margin-top:22px}
+    #jungView{max-width:1040px;margin:0 auto}
+    #jungView .quote-panel{min-height:470px;padding:clamp(34px,5vw,64px)}
+    #jungView .quote-text{font-size:clamp(1.8rem,2.8vw,3rem);max-width:27ch}
+    #savedView .list{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    #aboutView{max-width:900px;margin:0 auto}
+    #aboutView .info{padding:clamp(28px,4vw,48px)}
+    body.focus-mode .draw-controls{display:none!important}
+    body.focus-mode .draw-layout{display:block!important}
+    body.focus-mode .draw-stage{max-width:900px;margin:0 auto}
+  }
+  @media(min-width:1120px){
+    #drawView .draw-layout{grid-template-columns:minmax(290px,.72fr) minmax(0,1.7fr);gap:42px}
+    .need-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #exploreView .deck-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+    #jungView .quote-panel{min-height:520px}
+    #jungView .quote-text{font-size:clamp(2rem,2.7vw,3.35rem)}
+  }
+  @media(min-width:820px) and (max-width:960px){
+    .shell{width:min(100% - 40px,1240px)}
+    #drawView .draw-layout{grid-template-columns:minmax(225px,.75fr) minmax(0,1.3fr);gap:20px}
+    .need-picker{padding:16px}
+    #exploreView .deck-list,#savedView .list{grid-template-columns:1fr}
+  }
+
+</style>
 </head>
 <body>
 <main class="shell">
@@ -131,17 +191,23 @@
     <button class="tab" data-view="about" aria-selected="false">About</button>
   </nav>
   <section id="drawView" class="view">
-    <section class="need-picker" aria-labelledby="needHeading"><h2 id="needHeading">What do you need right now?</h2><p>Choose a direction, or draw from everything.</p><div class="need-options"><button class="need-option" data-need="settle" aria-pressed="false"><strong>Settle</strong><small>Sensory reset</small></button><button class="need-option" data-need="start" aria-pressed="false"><strong>Start small</strong><small>Low energy · movement</small></button><button class="need-option" data-need="untangle" aria-pressed="false"><strong>Untangle</strong><small>Thoughts · big feelings</small></button><button class="need-option" data-need="recover" aria-pressed="false"><strong>Recover</strong><small>Social recovery</small></button></div></section>
+    <div class="draw-layout">
+      <aside class="draw-controls" aria-label="Card selection">
+        <section class="need-picker" aria-labelledby="needHeading"><h2 id="needHeading">What do you need right now?</h2><p>Choose a direction, or draw from everything.</p><div class="need-options"><button class="need-option" data-need="settle" aria-pressed="false"><strong>Settle</strong><small>Sensory reset</small></button><button class="need-option" data-need="start" aria-pressed="false"><strong>Start small</strong><small>Low energy · movement</small></button><button class="need-option" data-need="untangle" aria-pressed="false"><strong>Untangle</strong><small>Thoughts · big feelings</small></button><button class="need-option" data-need="recover" aria-pressed="false"><strong>Recover</strong><small>Social recovery</small></button></div></section>
     <details class="area-picker"><summary>Choose a specific area</summary><div class="filters" id="filters" role="group" aria-label="Choose a card category"></div></details>
     <div class="draw-row"><button class="primary" id="drawBtn">Draw a card</button><button class="secondary pass-btn" id="againBtn">Not this one</button></div>
-    <article id="card" class="card" aria-live="polite">
+        <p class="helper">100 cards · 20 in each area · no streaks, scores, or required order.</p>
+      </aside>
+      <div class="draw-stage">
+        <article id="card" class="card" aria-live="polite">
       <div class="card-top"><span id="category" class="category"></span><span id="number" class="number"></span></div>
       <h2 id="title" class="card-title"></h2><p id="prompt" class="prompt"></p>
       <div class="small"><div class="label">Smaller version · if needed</div><p id="small"></p></div>
       <details class="reflection"><summary>Jungian reflection <span>OPTIONAL</span></summary><p id="reflection"></p></details>
     </article>
     <div class="history-row"><button class="action" id="previousBtn" disabled>← Previous card</button></div><div class="card-tools"><button class="action" id="similarBtn">Another like this</button><button class="action" id="focusBtn" aria-pressed="false">Focus card</button></div><div class="actions"><button class="action" id="saveBtn">♡ Save card</button><button class="action" id="shareBtn">↗ Share card</button></div>
-    <p class="helper">100 cards · 20 in each area · no streaks, scores, or required order.</p>
+      </div>
+    </div>
   </section>
   <section id="exploreView" class="view" hidden>
     <div class="info" id="deckListView"><div class="eyebrow">SOURCE LIBRARY · 9 COLLECTIONS</div><h2>Explore by collection</h2><p>Choose a collection to open its cards. Draw one at a time, and return to this list whenever you like.</p><p class="source-info">Some collections are adapted from <a href="https://alorayoung.org/" target="_blank" rel="noopener">Alora Young’s NeuroScouts resources</a>. Each draw links to its original source.</p><label class="search-field">Find a collection<input id="deckSearch" type="search" placeholder="Search by name or area" autocomplete="off"></label><p id="deckEmpty" class="empty-search" hidden>No collections match that search.</p><div id="deckList" class="deck-list" aria-label="Source decks"></div></div>

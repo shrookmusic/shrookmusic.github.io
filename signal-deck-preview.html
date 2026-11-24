@@ -407,9 +407,7 @@
 
       if (!window.SC || !window.SC.Widget) {
         setStatus("SoundCloud player unavailable. Use the link above to listen.");
-        return;
-      }
-
+      } else {
       var widget = window.SC.Widget(iframe);
       widget.bind(window.SC.Widget.Events.READY, function () {
         widgetReady = true;
@@ -458,6 +456,8 @@
         if (widgetReady && durationMs) widget.seekTo(Math.round(durationMs * fraction));
       });
 
+
+      }
 
       var editorOpen = document.getElementById("editor-open");
       var editorPanel = document.getElementById("editor-panel");

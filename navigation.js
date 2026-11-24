@@ -21,3 +21,14 @@ document.addEventListener('keydown', event => {
     }
   }
 });
+
+const exploreMenu = [...document.querySelectorAll('.listen-menu')].find(
+  menu => menu.querySelector('summary')?.textContent.trim() === 'Explore'
+);
+const exploreLinks = exploreMenu?.querySelector('.listen-options');
+if (exploreLinks && !exploreLinks.querySelector('a[href="/self-care/"]')) {
+  const selfCareLink = document.createElement('a');
+  selfCareLink.href = '/self-care/';
+  selfCareLink.textContent = 'Self-Care Cards';
+  exploreLinks.append(selfCareLink);
+}

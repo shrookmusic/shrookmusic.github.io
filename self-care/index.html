@@ -420,6 +420,13 @@
   }
   @media(min-width:1120px){#drawView .need-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+
+  @media(min-width:820px){
+    #drawView .selection-panels{grid-template-columns:minmax(0,1fr);grid-template-areas:none;grid-auto-flow:row}
+    #drawView .selection-panels>.area-picker,
+    #drawView .selection-panels>.accessibility-panel{grid-area:auto!important;width:100%;min-width:0}
+  }
+
 </style>
 </head>
 <body>

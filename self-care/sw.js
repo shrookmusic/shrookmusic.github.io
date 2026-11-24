@@ -1,1 +1,1 @@
-const CACHE = "self-care-cards-v5";
+const CACHE = "self-care-cards-v6";

@@ -20,6 +20,65 @@
     .shell { padding-inline:var(--gutter); }
     .label { font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
     .preview-tag { display:flex; justify-content:center; gap:9px; padding:7px 14px; background:var(--acid); color:var(--ink); font-size:10px; font-weight:700; letter-spacing:.12em; text-align:center; text-transform:uppercase; }
+
+    .preview-tag { position:relative; }
+    .editor-launcher { margin-left:auto; padding:5px 11px; border:1px solid var(--ink); color:var(--ink); background:transparent; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; cursor:pointer; }
+    .editor-launcher:hover,.editor-launcher[aria-expanded="true"] { color:var(--acid); background:var(--ink); }
+    .editor-scrim { position:fixed; inset:0; z-index:30; width:100%; border:0; background:#000a; cursor:pointer; }
+    .editor-scrim[hidden] { display:none; }
+    .editor-panel { position:fixed; inset:0 0 0 auto; z-index:31; width:min(410px,94vw); overflow:auto; padding:22px 22px 30px; color:var(--paper); background:#191a17; border-left:1px solid #696a60; box-shadow:-18px 0 55px #0009; transform:translateX(105%); transition:transform .24s ease; }
+    .editor-panel.is-open { transform:translateX(0); }
+    .editor-panel[aria-hidden="true"] { visibility:hidden; }
+    .editor-panel[aria-hidden="false"] { visibility:visible; }
+    .editor-head { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; padding-bottom:17px; border-bottom:1px solid var(--line); }
+    .editor-head .label { margin:0 0 7px; color:var(--acid); }
+    .editor-head h2 { margin:0; font:25px/1 var(--primary); letter-spacing:-.04em; }
+    .editor-close { width:36px; height:36px; border:1px solid #68695e; color:var(--paper); background:transparent; font-size:20px; cursor:pointer; }
+    .editor-close:hover { color:var(--ink); background:var(--acid); }
+    .editor-note { margin:14px 0 19px; padding:11px 12px; border-left:3px solid var(--acid); background:#24251f; color:#d3d2c8; font-size:12px; line-height:1.45; }
+    .editor-section { padding:16px 0; border-top:1px solid #393a33; }
+    .editor-section h3 { margin:0 0 11px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; }
+    .editor-section > p { margin:0 0 12px; color:#b8b9ae; font-size:12px; line-height:1.4; }
+    .editor-select { display:block; width:100%; padding:11px 12px; border:1px solid #66675e; border-radius:0; color:var(--paper); background:#24251f; }
+    .editor-module-list { display:grid; gap:7px; margin:0; padding:0; list-style:none; }
+    .editor-module { display:grid; grid-template-columns:25px minmax(0,1fr) auto; align-items:center; gap:8px; min-height:48px; padding:7px 8px; border:1px solid #4a4b43; background:#22231e; }
+    .editor-module.is-dragging { opacity:.45; border-color:var(--acid); }
+    .editor-module.is-over { border-top:2px solid var(--acid); }
+    .drag-handle { color:#b8b9ae; text-align:center; cursor:grab; user-select:none; }
+    .module-name { font-size:12px; font-weight:600; }
+    .module-actions { display:flex; align-items:center; gap:4px; }
+    .move-button { width:27px; height:27px; border:1px solid #55564d; color:var(--paper); background:transparent; cursor:pointer; }
+    .move-button:hover { color:var(--ink); background:var(--acid); }
+    .module-visible { display:flex; align-items:center; gap:5px; color:#b8b9ae; font-size:9px; letter-spacing:.05em; text-transform:uppercase; }
+    .module-visible input { accent-color:var(--acid); }
+    .editor-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+    .editor-action { min-height:42px; padding:9px 10px; border:1px solid #77786e; color:var(--paper); background:transparent; font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; cursor:pointer; }
+    .editor-action.primary { border-color:var(--acid); color:var(--ink); background:var(--acid); }
+    .editor-action:hover { border-color:var(--acid); color:var(--acid); background:var(--ink); }
+    .editor-action.primary:hover { color:var(--ink); background:#f0ff8c; }
+    .editor-status { min-height:18px; margin:12px 0 0; color:var(--acid); font-size:11px; }
+    body[data-theme="chrome"] { --acid:#d3d7dc; --line:#62666b; }
+    body[data-theme="paper"] { background:#e9e7dd; color:#171814; --acid:#d9ef42; --line:#a5a69a; }
+    body[data-theme="paper"] .site-header { color:#171814; background:#e9e7dded; }
+    body[data-theme="paper"] .hero-copy { color:#171814; background:radial-gradient(ellipse at 82% 7%,#d2d0c4,transparent 58%),#e9e7dd; }
+    body[data-theme="paper"] .hero-copy::before { background:repeating-linear-gradient(0deg,#44451a12 0 1px,transparent 1px 4px); }
+    body[data-theme="paper"] .hero-meta span:last-child { color:#171814; }
+    body[data-theme="paper"] .modes { color:#171814; background:#e3e1d7; }
+    body[data-theme="paper"] .mode-tabs { border-color:#a5a69a; }
+    body[data-theme="paper"] .mode-tab { color:#171814; border-color:#a5a69a; }
+    body[data-theme="paper"] .mode-tab:hover,body[data-theme="paper"] .mode-tab[aria-selected="true"] { color:#171814; }
+    body[data-theme="paper"] .mode-heading .label,body[data-theme="paper"] .mode-heading p,body[data-theme="paper"] .card-copy .label,body[data-theme="paper"] .card-copy p { color:#55564e; }
+    body[data-theme="paper"] .content-card { border-color:#b4b4a8; background:linear-gradient(130deg,#f5f3e9,#dad8ce); }
+    body[data-theme="paper"] footer { color:#55564e; }
+    body[data-bg="clean"] .hero-visual::after { background:linear-gradient(90deg,#14141120,transparent 35%),linear-gradient(0deg,#14141160,transparent 52%); }
+    body[data-bg="low"] .hero-visual::after { background:linear-gradient(90deg,#1414117a,transparent 48%),linear-gradient(0deg,#141411e6,transparent 70%),repeating-linear-gradient(0deg,#14141124 0 1px,transparent 1px 4px); }
+    @media (prefers-reduced-motion:reduce) { .editor-panel { transition:none; } }
+    @media (max-width:620px) {
+      .preview-tag { justify-content:flex-start; gap:6px; font-size:8px; }
+      .editor-launcher { padding:5px 8px; font-size:8px; }
+      .editor-panel { padding:18px 16px 24px; }
+    }
+
     .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid var(--line); background:#141411ed; backdrop-filter:blur(14px); }
     .header-inner { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
     .logo { width:116px; aspect-ratio:3.61; }
@@ -141,7 +200,52 @@
   </style>
 </head>
 <body>
-  <div class="preview-tag"><span>Concept preview</span><span aria-hidden="true">•</span><span>Not live</span></div>
+  <div class="preview-tag"><span>Concept preview</span><span aria-hidden="true">•</span><span>Not live</span><button class="editor-launcher" id="editor-open" type="button" aria-expanded="false" aria-controls="editor-panel">Customize</button></div>
+  <button class="editor-scrim" id="editor-scrim" type="button" aria-label="Close layout editor" hidden></button>
+  <aside class="editor-panel" id="editor-panel" aria-label="SHROOK site editor" aria-hidden="true" inert>
+    <div class="editor-head">
+      <div><p class="label">SHROOK / Studio</p><h2>Shape the page</h2></div>
+      <button class="editor-close" id="editor-close" type="button" aria-label="Close editor">×</button>
+    </div>
+    <p class="editor-note">Arrange your public page and preview the changes here. Save stays on this browser; export a layout file to carry it elsewhere. It does not publish to the live site.</p>
+    <section class="editor-section">
+      <h3>Visual language</h3>
+      <p>Choose a complete surface treatment for this concept.</p>
+      <label class="sr-only" for="theme-select">Visual theme</label>
+      <select class="editor-select" id="theme-select">
+        <option value="signal">Signal Room · charcoal + acid</option>
+        <option value="chrome">Chrome Rack · graphite + silver</option>
+        <option value="paper">Flyer Archive · warm paper + ink</option>
+      </select>
+    </section>
+    <section class="editor-section">
+      <h3>Hero image treatment</h3>
+      <label class="sr-only" for="background-select">Hero image treatment</label>
+      <select class="editor-select" id="background-select">
+        <option value="grain">Club grain</option>
+        <option value="clean">Clean monochrome</option>
+        <option value="low">Low light</option>
+      </select>
+    </section>
+    <section class="editor-section">
+      <h3>Page modules</h3>
+      <p>Drag modules to reorder them, use the arrows for precise moves, and hide anything you do not need.</p>
+      <ol class="editor-module-list" id="module-list">
+        <li class="editor-module" draggable="true" data-module="hero"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Signal Deck / Hero</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Signal Deck up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Signal Deck down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+        <li class="editor-module" draggable="true" data-module="listen"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Tracks / DJ Sets / Visuals</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move content modes up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move content modes down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+        <li class="editor-module" draggable="true" data-module="about"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">About</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move About up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move About down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+        <li class="editor-module" draggable="true" data-module="booking"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Promoter / Booking</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Booking up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Booking down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+      </ol>
+    </section>
+    <div class="editor-actions">
+      <button class="editor-action primary" id="save-layout" type="button">Save on this browser</button>
+      <button class="editor-action" id="export-layout" type="button">Export layout</button>
+      <button class="editor-action" id="import-layout" type="button">Load layout file</button>
+      <button class="editor-action" id="reset-layout" type="button">Reset preview</button>
+      <input class="sr-only" id="layout-file" type="file" accept="application/json,.json">
+    </div>
+    <p class="editor-status" id="editor-status" role="status" aria-live="polite"></p>
+  </aside>
   <header class="site-header">
     <div class="header-inner shell">
       <a class="logo" href="#top" aria-label="SHROOK home"><img src="assets/shrook-wordmark.webp" alt=""></a>
@@ -154,7 +258,7 @@
     </div>
   </header>
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" data-module="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div class="hero-meta label"><span>DJ &amp; Producer</span><span>Dubai, UAE</span></div>
         <h1 class="wordmark" id="hero-title"><img src="assets/shrook-wordmark.webp" alt="SHROOK"></h1>
@@ -172,7 +276,7 @@
               </div>
               <div class="meter" aria-hidden="true">
                 <div class="meter-readout" id="vu-meter"></div>
-                <span class="meter-caption">VU / SIGNAL</span>
+                <span class="meter-caption">SIGNAL / PLAYBACK</span>
               </div>
             </div>
             <div class="seek-row">
@@ -195,7 +299,7 @@
       </div>
     </section>
 
-    <section class="modes" id="listen" aria-label="Explore SHROOK">
+    <section class="modes" id="listen" data-module="listen" aria-label="Explore SHROOK">
       <div class="mode-tabs" role="tablist" aria-label="Choose a content mode">
         <button class="mode-tab" id="tab-tracks" type="button" role="tab" aria-controls="panel-tracks" aria-selected="true">Tracks</button>
         <button class="mode-tab" id="tab-sets" type="button" role="tab" aria-controls="panel-sets" aria-selected="false" tabindex="-1">DJ sets</button>
@@ -248,11 +352,11 @@
       </div>
     </section>
 
-    <section class="about shell" id="about">
+    <section class="about shell" id="about" data-module="about">
       <h2>About Shrook</h2>
       <p>Shrook is a Dubai-based DJ and music producer with 9 years of DJing and 8 years of production experience. His sound blends psychedelic textures, hypnotic rhythms, rolling basslines and driving percussion, drawing from psytrance, underground techno and hard groove.</p>
     </section>
-    <section class="booking shell" id="booking">
+    <section class="booking shell" id="booking" data-module="booking">
       <h2>For promoters</h2>
       <a href="mailto:shrookmusic@gmail.com">Booking &amp; press enquiries <span aria-hidden="true">↗</span></a>
     </section>
@@ -353,6 +457,182 @@
         seek.style.setProperty("--progress", (fraction * 100) + "%");
         if (widgetReady && durationMs) widget.seekTo(Math.round(durationMs * fraction));
       });
+
+
+      var editorOpen = document.getElementById("editor-open");
+      var editorPanel = document.getElementById("editor-panel");
+      var editorScrim = document.getElementById("editor-scrim");
+      var editorClose = document.getElementById("editor-close");
+      var moduleList = document.getElementById("module-list");
+      var editorStatus = document.getElementById("editor-status");
+      var main = document.querySelector("main");
+      var themeSelect = document.getElementById("theme-select");
+      var backgroundSelect = document.getElementById("background-select");
+      var moduleDefaults = ["hero", "listen", "about", "booking"];
+      var draggedModule = null;
+      var storageKey = "shrookSignalDeckLayout";
+
+      function openEditor() {
+        editorPanel.classList.add("is-open");
+        editorPanel.setAttribute("aria-hidden", "false");
+        editorPanel.inert = false;
+        editorOpen.setAttribute("aria-expanded", "true");
+        editorScrim.hidden = false;
+        editorClose.focus();
+      }
+      function closeEditor() {
+        editorPanel.classList.remove("is-open");
+        editorPanel.setAttribute("aria-hidden", "true");
+        editorPanel.inert = true;
+        editorOpen.setAttribute("aria-expanded", "false");
+        editorScrim.hidden = true;
+        editorOpen.focus();
+      }
+      function currentLayout() {
+        var rows = Array.prototype.slice.call(moduleList.querySelectorAll(".editor-module"));
+        return {
+          version: 1,
+          theme: themeSelect.value,
+          background: backgroundSelect.value,
+          order: rows.map(function (row) { return row.dataset.module; }),
+          hidden: rows.filter(function (row) { return !row.querySelector("input[type=checkbox]").checked; }).map(function (row) { return row.dataset.module; })
+        };
+      }
+      function applyModuleOrder(order) {
+        var sections = {};
+        Array.prototype.slice.call(main.querySelectorAll("[data-module]")).forEach(function (section) {
+          sections[section.dataset.module] = section;
+        });
+        order.forEach(function (key) {
+          if (sections[key]) main.appendChild(sections[key]);
+        });
+      }
+      function syncModuleVisibility() {
+        Array.prototype.slice.call(moduleList.querySelectorAll(".editor-module")).forEach(function (row) {
+          var checkbox = row.querySelector("input[type=checkbox]");
+          var section = main.querySelector('[data-module="' + row.dataset.module + '"]');
+          if (section) section.hidden = !checkbox.checked;
+        });
+      }
+      function applyLayout(config) {
+        if (!config || config.version !== 1 || !Array.isArray(config.order) || !Array.isArray(config.hidden)) throw new Error("This layout file is not supported.");
+        var known = ["hero", "listen", "about", "booking"];
+        var order = config.order.filter(function (key, index, list) { return known.indexOf(key) >= 0 && list.indexOf(key) === index; });
+        known.forEach(function (key) { if (order.indexOf(key) < 0) order.push(key); });
+        order.forEach(function (key) {
+          var row = moduleList.querySelector('[data-module="' + key + '"]');
+          if (row) moduleList.appendChild(row);
+        });
+        themeSelect.value = ["signal", "chrome", "paper"].indexOf(config.theme) >= 0 ? config.theme : "signal";
+        backgroundSelect.value = ["grain", "clean", "low"].indexOf(config.background) >= 0 ? config.background : "grain";
+        document.body.dataset.theme = themeSelect.value;
+        document.body.dataset.bg = backgroundSelect.value;
+        Array.prototype.slice.call(moduleList.querySelectorAll(".editor-module")).forEach(function (row) {
+          row.querySelector("input[type=checkbox]").checked = config.hidden.indexOf(row.dataset.module) < 0;
+        });
+        applyModuleOrder(order);
+        syncModuleVisibility();
+      }
+      function announce(message) { editorStatus.textContent = message; }
+      function saveLocal() {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(currentLayout()));
+          announce("Saved on this browser. The public site is unchanged.");
+        } catch (error) {
+          announce("This browser could not save. Use Export layout instead.");
+        }
+      }
+      function reorderFromList() {
+        var order = Array.prototype.map.call(moduleList.querySelectorAll(".editor-module"), function (row) { return row.dataset.module; });
+        applyModuleOrder(order);
+      }
+
+      editorOpen.addEventListener("click", openEditor);
+      editorClose.addEventListener("click", closeEditor);
+      editorScrim.addEventListener("click", closeEditor);
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && editorPanel.classList.contains("is-open")) closeEditor();
+      });
+      themeSelect.addEventListener("change", function () { document.body.dataset.theme = themeSelect.value; });
+      backgroundSelect.addEventListener("change", function () { document.body.dataset.bg = backgroundSelect.value; });
+      moduleList.addEventListener("change", function (event) {
+        if (event.target.matches('input[type="checkbox"]')) syncModuleVisibility();
+      });
+      moduleList.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-move]");
+        if (!button) return;
+        var row = button.closest(".editor-module");
+        if (button.dataset.move === "up" && row.previousElementSibling) moduleList.insertBefore(row, row.previousElementSibling);
+        if (button.dataset.move === "down" && row.nextElementSibling) moduleList.insertBefore(row.nextElementSibling, row);
+        reorderFromList();
+      });
+      moduleList.addEventListener("dragstart", function (event) {
+        var row = event.target.closest(".editor-module");
+        if (!row) return;
+        draggedModule = row;
+        row.classList.add("is-dragging");
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData("text/plain", row.dataset.module);
+      });
+      moduleList.addEventListener("dragover", function (event) {
+        event.preventDefault();
+        var row = event.target.closest(".editor-module");
+        if (!row || !draggedModule || row === draggedModule) return;
+        var before = event.clientY < row.getBoundingClientRect().top + row.offsetHeight / 2;
+        moduleList.insertBefore(draggedModule, before ? row : row.nextElementSibling);
+        moduleList.querySelectorAll(".editor-module").forEach(function (item) { item.classList.toggle("is-over", item === row); });
+      });
+      moduleList.addEventListener("drop", function (event) {
+        event.preventDefault();
+        moduleList.querySelectorAll(".editor-module").forEach(function (item) { item.classList.remove("is-over"); });
+        reorderFromList();
+      });
+      moduleList.addEventListener("dragend", function () {
+        if (draggedModule) draggedModule.classList.remove("is-dragging");
+        draggedModule = null;
+        moduleList.querySelectorAll(".editor-module").forEach(function (item) { item.classList.remove("is-over"); });
+        reorderFromList();
+      });
+      document.getElementById("save-layout").addEventListener("click", saveLocal);
+      document.getElementById("export-layout").addEventListener("click", function () {
+        var data = JSON.stringify(currentLayout(), null, 2);
+        var url = URL.createObjectURL(new Blob([data], { type: "application/json" }));
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = "shrook-site-layout.json";
+        link.click();
+        URL.revokeObjectURL(url);
+        announce("Layout file downloaded.");
+      });
+      var layoutFile = document.getElementById("layout-file");
+      document.getElementById("import-layout").addEventListener("click", function () { layoutFile.click(); });
+      layoutFile.addEventListener("change", function () {
+        var file = layoutFile.files && layoutFile.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          try {
+            applyLayout(JSON.parse(String(reader.result)));
+            announce("Layout loaded into this preview. Save or export to keep it.");
+          } catch (error) {
+            announce(error.message || "Could not load this layout file.");
+          }
+          layoutFile.value = "";
+        };
+        reader.readAsText(file);
+      });
+      document.getElementById("reset-layout").addEventListener("click", function () {
+        applyLayout({ version:1, theme:"signal", background:"grain", order:moduleDefaults, hidden:[] });
+        try { localStorage.removeItem(storageKey); } catch (error) {}
+        announce("Preview reset to its original layout.");
+      });
+      try {
+        var savedLayout = localStorage.getItem(storageKey);
+        if (savedLayout) {
+          try { applyLayout(JSON.parse(savedLayout)); }
+          catch (error) { localStorage.removeItem(storageKey); }
+        }
+      } catch (error) { announce("Local saving is unavailable in this browser."); }
 
       document.querySelectorAll(".mode-tab").forEach(function (tab) {
         tab.addEventListener("click", function () {

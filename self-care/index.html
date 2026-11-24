@@ -63,6 +63,7 @@
   .saved-remove{align-self:center;min-height:42px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--muted);padding:8px 11px;font:inherit;font-size:.8rem}
   .saved-remove:hover{border-color:var(--sage);color:var(--sage)}
   @media(max-width:600px){
+    .tabs{grid-template-columns:repeat(4,minmax(0,1fr))}
     .shell{padding-bottom:calc(env(safe-area-inset-bottom) + 92px)}
     .tabs{position:fixed;z-index:20;left:0;right:0;bottom:0;margin:0;padding:7px 8px calc(env(safe-area-inset-bottom) + 7px);background:#111210ed;border-top:1px solid #666b66;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 -8px 24px #0005}
     .tab{min-height:48px;display:flex;align-items:center;justify-content:center}

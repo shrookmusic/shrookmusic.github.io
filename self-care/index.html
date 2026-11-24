@@ -351,7 +351,9 @@
     }
     #drawView .draw-controls,#drawView .draw-stage,#drawView .draw-row{display:contents!important}
     #drawView .need-picker{grid-area:needs;min-width:0}
-    #drawView .selection-panels{grid-area:panels;display:grid;gap:9px}
+    #drawView .selection-panels{grid-area:panels;display:grid;grid-template-columns:minmax(0,1fr);min-width:0;width:100%;gap:9px}
+    #drawView .selection-panels>.area-picker,#drawView .selection-panels>.accessibility-panel{min-width:0;width:100%;max-width:100%}
+    #drawView .area-picker .filters{min-width:0;width:100%;max-width:100%;box-sizing:border-box}
     #drawView .area-picker{margin:0}
     #drawView .accessibility-panel{margin:0}
     #drawView #drawBtn{grid-area:draw}

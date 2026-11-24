@@ -197,6 +197,64 @@
       .booking a { margin-top:15px; }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
+  
+    nav .nav-menu { position:relative; }
+    nav .nav-menu summary { list-style:none; cursor:pointer; padding:10px 0; }
+    nav .nav-menu summary::-webkit-details-marker { display:none; }
+    nav .nav-menu summary::after { content:"⌄"; padding-left:5px; color:var(--acid); }
+    .nav-dropdown { position:absolute; top:100%; left:-16px; z-index:15; display:grid; min-width:150px; padding:7px; border:1px solid var(--line); background:#191a17; box-shadow:0 10px 24px #0008; }
+    .nav-dropdown a { display:block; padding:11px 10px; white-space:nowrap; }
+    .nav-dropdown a:hover { color:var(--ink); background:var(--acid); }
+    .side-projects,.media-archive { padding-block:clamp(38px,6vw,76px); border-top:1px solid var(--line); }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .project-card { display:flex; flex-direction:column; align-items:flex-start; min-height:210px; padding:22px; border:1px solid #54554c; background:linear-gradient(130deg,#22231f,#181915); }
+    .project-card .label { margin:0 0 12px; color:var(--acid); }
+    .project-card h3 { margin:0; font:clamp(22px,3vw,34px)/1 var(--primary); }
+    .project-card p:not(.label) { max-width:52ch; color:#b8b9ae; line-height:1.5; }
+    .project-card a { margin-top:auto; color:var(--acid); }
+    .media-archive .section-heading { display:flex; justify-content:space-between; align-items:end; gap:18px; margin-bottom:22px; }
+    .media-archive .section-heading h2 { margin:0; font:clamp(30px,4.5vw,58px)/1 var(--primary); letter-spacing:-.055em; }
+    .media-archive .section-heading p:last-child { max-width:360px; color:#b8b9ae; }
+    .live-video-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .live-video-grid figure { margin:0; }
+    .live-video-grid video { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#080908; filter:grayscale(1); }
+    .live-video-grid figcaption { padding-top:8px; color:#b8b9ae; }
+    .gallery-heading { margin:30px 0 12px; }
+    .visual-gallery { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+    .visual-card { position:relative; display:block; width:100%; padding:0; overflow:hidden; border:1px solid #4d4e45; color:var(--paper); background:#191a17; text-align:left; cursor:zoom-in; }
+    .visual-card img { display:block; width:100%; aspect-ratio:4/5; object-fit:cover; filter:grayscale(1); transition:transform .25s ease,filter .25s ease; }
+    .visual-card:hover img,.visual-card:focus-visible img { transform:scale(1.04); filter:grayscale(.45); }
+    .visual-card .label { display:block; padding:9px; color:#c7c7bd; }
+    .photo-viewer { width:min(1100px,96vw); max-width:none; max-height:92vh; padding:16px; border:1px solid #77786e; color:var(--paper); background:#141411; }
+    .photo-viewer::backdrop { background:#000d; backdrop-filter:blur(5px); }
+    .photo-viewer-bar { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .photo-viewer-bar .label { color:var(--acid); }
+    .photo-viewer-bar button,.photo-viewer-image button { width:42px; height:42px; border:1px solid #68695e; color:var(--paper); background:#1e1f1a; font-size:26px; cursor:pointer; }
+    .photo-viewer-image { display:grid; grid-template-columns:46px minmax(0,1fr) 46px; align-items:center; gap:12px; }
+    .photo-viewer-image img { display:block; max-width:100%; max-height:75vh; margin:auto; object-fit:contain; }
+    .booking-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .booking-links a { display:inline-flex; align-items:center; gap:12px; padding:12px 15px; border:1px solid var(--ink); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .booking-links a:hover { color:var(--acid); background:var(--ink); }
+    .booking p { max-width:65ch; line-height:1.5; }
+    .sr-only#sc-widget { position:fixed; left:-2px; bottom:0; width:1px; height:1px; opacity:.01; pointer-events:none; }
+    @media (max-width:850px) {
+      nav { gap:clamp(10px,2vw,18px); font-size:10px; }
+      .visual-gallery { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width:620px) {
+      .header-inner { align-items:flex-start; flex-direction:column; gap:4px; padding-block:10px; }
+      nav { width:100%; justify-content:space-between; gap:8px; font-size:9px; }
+      nav .nav-menu summary { padding:8px 0; }
+      .nav-dropdown { left:auto; right:0; }
+      .project-grid,.live-video-grid { grid-template-columns:1fr; }
+      .media-archive .section-heading { display:block; }
+      .media-archive .section-heading p:last-child { margin-bottom:0; }
+      .visual-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .photo-viewer { padding:9px; }
+      .photo-viewer-image { grid-template-columns:34px minmax(0,1fr) 34px; gap:6px; }
+      .photo-viewer-image button { width:32px; height:42px; }
+      .booking-links { display:grid; }
+    }
   </style>
 </head>
 <body>
@@ -234,6 +292,8 @@
         <li class="editor-module" draggable="true" data-module="hero"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Signal Deck / Hero</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Signal Deck up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Signal Deck down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
         <li class="editor-module" draggable="true" data-module="listen"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Tracks / DJ Sets / Visuals</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move content modes up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move content modes down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
         <li class="editor-module" draggable="true" data-module="about"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">About</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move About up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move About down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+        <li class="editor-module" draggable="true" data-module="live"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Live / Visual Archive</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Live / Visual Archive up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Live / Visual Archive down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
+        <li class="editor-module" draggable="true" data-module="projects"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Projects</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Projects up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Projects down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
         <li class="editor-module" draggable="true" data-module="booking"><span class="drag-handle" aria-hidden="true">⠿</span><span class="module-name">Promoter / Booking</span><span class="module-actions"><button class="move-button" type="button" data-move="up" aria-label="Move Booking up">↑</button><button class="move-button" type="button" data-move="down" aria-label="Move Booking down">↓</button><label class="module-visible"><input type="checkbox" checked>Show</label></span></li>
       </ol>
     </section>
@@ -251,9 +311,10 @@
       <a class="logo" href="#top" aria-label="SHROOK home"><img src="assets/shrook-wordmark.webp" alt=""></a>
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
-        <a href="#listen">Listen</a>
-        <a href="#visuals">Videos</a>
-        <a href="#booking">Booking</a>
+        <details class="nav-menu"><summary>Listen</summary><div class="nav-dropdown"><a href="#listen">Tracks</a><a href="#mixes">DJ sets</a></div></details>
+        <a href="#live">Live</a>
+        <a href="#projects">Projects</a>
+        <details class="nav-menu"><summary>For promoters</summary><div class="nav-dropdown"><a href="#booking">Booking</a><a href="assets/Shrook-Press-Kit.pdf" target="_blank" rel="noopener">Press kit</a><a href="mailto:shrookmusic@gmail.com?subject=SHROOK%20Enquiry">Contact</a></div></details>
       </nav>
     </div>
   </header>
@@ -291,10 +352,10 @@
             <p class="player-status" id="player-status" role="status" aria-live="polite">Loading SoundCloud player…</p>
           </div>
         </article>
-        <iframe class="sr-only" id="sc-widget" title="POW POW on SoundCloud" allow="autoplay" loading="lazy"></iframe>
+        <iframe class="sr-only" id="sc-widget" title="POW POW on SoundCloud" allow="autoplay" loading="eager"></iframe>
       </div>
       <div class="hero-visual">
-        <img src="assets/shrook-portrait.webp" alt="Shrook wearing sunglasses and holding a music controller" fetchpriority="high" width="1414" height="2000">
+        <img src="assets/shrook-visual-02.webp" alt="Shrook in a black sweater, holding a music controller" fetchpriority="high" width="933" height="1400">
         <span class="visual-caption">Dubai / Hypnotic pressure</span>
       </div>
     </section>
@@ -356,17 +417,44 @@
       <h2>About Shrook</h2>
       <p>Shrook is a Dubai-based DJ and music producer with 9 years of DJing and 8 years of production experience. His sound blends psychedelic textures, hypnotic rhythms, rolling basslines and driving percussion, drawing from psytrance, underground techno and hard groove.</p>
     </section>
+    <section class="media-archive shell" id="live" data-module="live" aria-labelledby="live-title">
+      <div class="section-heading"><div><p class="label">Live / visual archive</p><h2 id="live-title">Behind the decks</h2></div><p>Performance clips and portraits from the SHROOK archive.</p></div>
+      <div class="live-video-grid">
+        <figure><div class="video-frame"><video controls muted loop playsinline preload="none" poster="assets/performance-1.jpg" aria-label="Shrook performing at the decks"><source src="assets/performance-1.mp4" type="video/mp4"></video></div><figcaption class="label">Live performance / 01</figcaption></figure>
+        <figure><div class="video-frame"><video controls muted loop playsinline preload="none" poster="assets/performance-2.jpg" aria-label="Shrook DJing under club lighting"><source src="assets/performance-2.mp4" type="video/mp4"></video></div><figcaption class="label">Live performance / 02</figcaption></figure>
+      </div>
+      <div class="gallery-heading"><p class="label">Artist portraits / select to view</p></div>
+      <div class="visual-gallery" id="visual-gallery">
+        <button class="visual-card" type="button" data-image="assets/shrook-visual-01.webp" data-alt="Shrook in sunglasses, portrait in Dubai"><img src="assets/shrook-visual-01.webp" alt="Shrook in sunglasses, portrait in Dubai" loading="lazy"><span class="label">Portrait / 01</span></button>
+        <button class="visual-card" type="button" data-image="assets/shrook-visual-02.webp" data-alt="Full-length portrait of Shrook in a black sweater"><img src="assets/shrook-visual-02.webp" alt="Full-length portrait of Shrook in a black sweater" loading="lazy"><span class="label">Portrait / 02</span></button>
+        <button class="visual-card" type="button" data-image="assets/shrook-visual-03.webp" data-alt="Shrook standing against a pale architectural wall"><img src="assets/shrook-visual-03.webp" alt="Shrook standing against a pale architectural wall" loading="lazy"><span class="label">Portrait / 03</span></button>
+        <button class="visual-card" type="button" data-image="assets/shrook-visual-04.webp" data-alt="Shrook in a blue shirt and chrome accessories"><img src="assets/shrook-visual-04.webp" alt="Shrook in a blue shirt and chrome accessories" loading="lazy"><span class="label">Portrait / 04</span></button>
+        <button class="visual-card" type="button" data-image="assets/shrook-visual-05.webp" data-alt="Black and white side portrait of Shrook"><img src="assets/shrook-visual-05.webp" alt="Black and white side portrait of Shrook" loading="lazy"><span class="label">Portrait / 05</span></button>
+      </div>
+    </section>
+    <section class="side-projects shell" id="projects" data-module="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><div><p class="label">Offstage / on the Move</p><h2 id="projects-title">Built for the box.</h2></div><p>Personal tools and instruments for Ableton Move.</p></div>
+      <div class="project-grid">
+        <article class="project-card"><p class="label">iOS companion / Schwung</p><h3>Schwung Pocket</h3><p>An iPhone companion for Ableton Move that brings the Schwung Manager, Mirror and performance controls into one pocket-sized workspace.</p><a class="label" href="https://github.com/chutneyrebel/schwung-pocket" target="_blank" rel="noopener noreferrer">Explore project <span aria-hidden="true">↗</span></a></article>
+        <article class="project-card"><p class="label">Wavetable instrument / Schwung</p><h3>synth_esis</h3><p>A custom wavetable synthesizer for Ableton Move, built for evolving oscillator shapes and hands-on sound design.</p><a class="label" href="https://github.com/chutneyrebel/synth_esis" target="_blank" rel="noopener noreferrer">Explore project <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
     <section class="booking shell" id="booking" data-module="booking">
       <h2>For promoters</h2>
-      <a href="mailto:shrookmusic@gmail.com">Booking &amp; press enquiries <span aria-hidden="true">↗</span></a>
+      <p>Hypnotic techno, hard groove and psychedelic textures for club nights, festival slots and guest mixes.</p>
+      <div class="booking-links"><a href="mailto:shrookmusic@gmail.com?subject=SHROOK%20Booking%20Enquiry">Start a booking enquiry <span aria-hidden="true">↗</span></a><a href="https://wa.me/971509093825?text=Hi%20Shrook%2C%20I%E2%80%99d%20like%20to%20enquire%20about%20booking%20you." target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a><a href="assets/Shrook-Press-Kit.pdf" target="_blank" rel="noopener">Download press kit <span aria-hidden="true">↗</span></a></div>
     </section>
+    <dialog class="photo-viewer" id="photo-viewer" aria-label="SHROOK portrait viewer">
+      <div class="photo-viewer-bar"><p class="label" id="photo-caption">SHROOK / VISUAL ARCHIVE</p><button id="photo-close" type="button" aria-label="Close image viewer">×</button></div>
+      <div class="photo-viewer-image"><button id="photo-prev" type="button" aria-label="Previous portrait">‹</button><img id="photo-large" alt=""><button id="photo-next" type="button" aria-label="Next portrait">›</button></div>
+    </dialog>
   </main>
   <footer class="shell"><span>SHROOK / Dubai, UAE</span><span>Hypnotic Techno · Hard Groove · Psychedelic Textures</span></footer>
 
   <script src="https://w.soundcloud.com/player/api.js"></script>
   <script>
     (function () {
-      var trackUrl = "https://on.soundcloud.com/nKQ5k3D65HFzeMtlgL";
+      var trackUrl = "https://soundcloud.com/shrookie/shrook-pow-pow-v1";
       var iframe = document.getElementById("sc-widget");
       var widgetReady = false;
       var isPlaying = false;
@@ -409,7 +497,11 @@
         setStatus("SoundCloud player unavailable. Use the link above to listen.");
       } else {
       var widget = window.SC.Widget(iframe);
+      var playerTimer = window.setTimeout(function () {
+        if (!widgetReady) setStatus("SoundCloud is taking too long to load. Use “Listen on SoundCloud” to play POW POW.");
+      }, 12000);
       widget.bind(window.SC.Widget.Events.READY, function () {
+        window.clearTimeout(playerTimer);
         widgetReady = true;
         playButton.disabled = false;
         setStatus("SoundCloud ready");
@@ -468,7 +560,7 @@
       var main = document.querySelector("main");
       var themeSelect = document.getElementById("theme-select");
       var backgroundSelect = document.getElementById("background-select");
-      var moduleDefaults = ["hero", "listen", "about", "booking"];
+      var moduleDefaults = ["hero", "about", "listen", "live", "projects", "booking"];
       var draggedModule = null;
       var storageKey = "shrookSignalDeckLayout";
 
@@ -516,7 +608,7 @@
       }
       function applyLayout(config) {
         if (!config || config.version !== 1 || !Array.isArray(config.order) || !Array.isArray(config.hidden)) throw new Error("This layout file is not supported.");
-        var known = ["hero", "listen", "about", "booking"];
+        var known = ["hero", "about", "listen", "live", "projects", "booking"];
         var order = config.order.filter(function (key, index, list) { return known.indexOf(key) >= 0 && list.indexOf(key) === index; });
         known.forEach(function (key) { if (order.indexOf(key) < 0) order.push(key); });
         order.forEach(function (key) {
@@ -648,6 +740,31 @@
           document.getElementById("listen").scrollIntoView({ behavior: "smooth", block: "start" });
         });
       });
+      var galleryCards = Array.prototype.slice.call(document.querySelectorAll(".visual-card[data-image]"));
+      var photoViewer = document.getElementById("photo-viewer");
+      var photoLarge = document.getElementById("photo-large");
+      var photoCaption = document.getElementById("photo-caption");
+      var photoIndex = 0;
+      function showPhoto(index) {
+        if (!galleryCards.length) return;
+        photoIndex = (index + galleryCards.length) % galleryCards.length;
+        var card = galleryCards[photoIndex];
+        photoLarge.src = card.dataset.image;
+        photoLarge.alt = card.dataset.alt || "";
+        photoCaption.textContent = "PORTRAIT / " + String(photoIndex + 1).padStart(2, "0") + " · " + (photoLarge.alt || "SHROOK");
+      }
+      galleryCards.forEach(function (card, index) {
+        card.addEventListener("click", function () { showPhoto(index); photoViewer.showModal(); });
+      });
+      document.getElementById("photo-close").addEventListener("click", function () { photoViewer.close(); });
+      document.getElementById("photo-prev").addEventListener("click", function () { showPhoto(photoIndex - 1); });
+      document.getElementById("photo-next").addEventListener("click", function () { showPhoto(photoIndex + 1); });
+      photoViewer.addEventListener("click", function (event) { if (event.target === photoViewer) photoViewer.close(); });
+      photoViewer.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") showPhoto(photoIndex - 1);
+        if (event.key === "ArrowRight") showPhoto(photoIndex + 1);
+      });
+
       document.querySelectorAll(".mode-tab").forEach(function (tab) {
         tab.addEventListener("click", function () {
           document.querySelectorAll(".mode-tab").forEach(function (other) {

@@ -1,4 +1,4 @@
-const CACHE = "self-care-cards-v19";
+const CACHE = "self-care-cards-v20";
 const FILES = ["./", "./index.html", "./manifest.webmanifest", "./cards.json", "./source-decks.json", "./icon.svg"];
 const APP_ROOT = new URL("./", self.location.href);
 const DATA_FILES = new Set(["cards.json", "source-decks.json"]);
